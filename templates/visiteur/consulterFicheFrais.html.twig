@@ -10,7 +10,24 @@
 
 <h2> Fiche Frais </h2>
 
-{{ dump(ficheFrais) }}
+{% if ficheFrais is empty %}
+
+<p> aucune fiche de frais n'est renseigner pour cette date donner. Vous allez être rediriger vers la page principale.</p>
+
+<script type="text/javascript">
+var durrest = 5;
+function compt()
+{
+    document.getElementById("compt").innerHTML=durrest;
+    durrest -= 1;
+    setTimeout(compt, 1000)
+}
+</script>
+Redirection dans <script><span id="compt"></span></script> seconde
+
+<meta http-equiv="refresh" content="5; URL=/visiteur" />
+
+{% else %}
 
 <table style="border: solid; margin-right: auto; margin-left: auto">
     <thead>
@@ -32,5 +49,7 @@
     </tr>
 
 </table>
+
+{% endif %}
 
 {% endblock %}

@@ -27,5 +27,5 @@ Deconnexion:
     controller: App\Controller\SeConnecterController::deconnexion
 
 consulterFicheFrais:
-    path: /consulterFicheFrais
+    path: /visiteur/consulterFicheFrais
     controller: App\Controller\VisiteurController::consulterFicheFrais
