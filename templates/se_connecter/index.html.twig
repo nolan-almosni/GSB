@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SeConnecterController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+{% if app.request.get('connexionFailure') == 1 %} <p>login ou mot de passe incorrect</p> {% endif %}
+
+<form method="POST" action='connexion'>
+    <input type=text name="login" placeholder="Entrez login">
+    <input type=password name="mdp" placeholder="Entrez mot de passe">
+    <input type=Submit value="Valider">
+</form>
+
+{% endblock %}

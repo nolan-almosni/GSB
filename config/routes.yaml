@@ -1,0 +1,31 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+accueil:
+    path: /accueil
+    controller: App\Controller\AccueilController::index
+
+seConnecter:
+    path: /seConnecter
+    controller: App\Controller\SeConnecterController::index
+
+connexion:
+    path: /connexion
+    controller: App\Controller\SeConnecterController::connexion
+
+Visiteur:
+    path: /visiteur
+    controller: App\Controller\VisiteurController::index
+
+Comptable:
+    path: /comptable
+    controller: App\Controller\ComptableController::index
+
+Deconnexion:
+    path: /deconnexion
+    controller: App\Controller\SeConnecterController::deconnexion
+
+consulterFicheFrais:
+    path: /consulterFicheFrais
+    controller: App\Controller\VisiteurController::consulterFicheFrais

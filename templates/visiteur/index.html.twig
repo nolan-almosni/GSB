@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Visiteur {% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h2> Visiteur </h2>
+
+votre login est {{session.get('login')}}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#moisFicheFrais">
+  Consulter fiche de frais
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="moisFicheFrais" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="moisFicheFraisLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titreModal">Choisissez le mois et l'année de la fiche de frais a consulter</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method='POST' action="consulterFicheFrais">
+            <select name="mois">
+                <option checked>-- Choisissez un mois --</option>
+                <option value="01">Janvier</option>
+                <option value="02">Fevrier</option>
+                <option value="03">Mars</option>
+                <option value="04">Avril</option>
+                <option value="05">Mai</option>
+                <option value="06">Juin</option>
+                <option value="07">Juillet</option>
+                <option value="08">Aout</option>
+                <option value="09">Septembre</option>
+                <option value="10">Octobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Decembre</option>
+            </select> 
+            <input type="number" name="annee" placeholder="Choisissez l'année" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <input type="submit" class="btn btn-primary" value="Valider">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href='/deconnexion' type="button">Se deconnecter</a>
+
+{% endblock %}
