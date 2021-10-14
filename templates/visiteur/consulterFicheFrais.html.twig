@@ -12,20 +12,26 @@
 
 {% if ficheFrais is empty %}
 
-<p> aucune fiche de frais n'est renseigner pour cette date donner. Vous allez être rediriger vers la page principale.</p>
+<p> aucune fiche de frais n'est renseigner pour cette date donner.</p>
 
 <script type="text/javascript">
-var durrest = 5;
-function compt()
+var duree = 5;
+function decompte()
 {
-    document.getElementById("compt").innerHTML=durrest;
-    durrest -= 1;
-    setTimeout(compt, 1000)
+    if(duree <= 1){
+        var suffixe = " seconde";
+    }else{
+        var suffixe = " secondes";
+    }
+    document.getElementById("decompte").innerHTML= "Vous allez être rediriger vers la page précédente dans " + duree + suffixe;
+    duree -= 1;
+    setTimeout("decompte();", 1000);
+    if(duree == -1){
+        document.location.href="/visiteur";
+    }
 }
 </script>
-Redirection dans <script><span id="compt"></span></script> seconde
-
-<meta http-equiv="refresh" content="5; URL=/visiteur" />
+<p id="decompte"><script type="text/javascript"> decompte() </script></p>
 
 {% else %}
 
